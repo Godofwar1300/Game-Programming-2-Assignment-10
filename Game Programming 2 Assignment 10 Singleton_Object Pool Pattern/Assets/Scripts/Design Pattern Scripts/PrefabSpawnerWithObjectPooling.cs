@@ -22,12 +22,15 @@ public class PrefabSpawnerWithObjectPooling : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        int spawnPositionX = Random.Range(80, 400);
+        int spawnPositionX = Random.Range(40, 180);
         //int spawnPositionY = Random.Range(80, 400);
-        int spawnPositionZ = Random.Range(80, 400);
+        int spawnPositionZ = Random.Range(40, 180);
 
         Vector3 randomSpawnPosition = new Vector3(spawnPositionX, transform.position.y, spawnPositionZ);
 
         objectPooler.SpawnFromPool("Rain Drop", randomSpawnPosition, Quaternion.identity);
+
+        //objectPooler.SpawnFromPool("Rain Drop", transform.position, Quaternion.identity);
+
     }
 }
