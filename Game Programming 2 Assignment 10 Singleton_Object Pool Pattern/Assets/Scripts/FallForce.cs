@@ -13,23 +13,26 @@ public class FallForce : MonoBehaviour
     //private float speed;
 
     //// Start is called before the first frame update
-    //void Start()
-    //{
-    //    rb2d = this.GetComponent<Rigidbody>();
-    //    speed = 10f;
-    //}
+    void Start()
+    {
+        //rb2d = this.GetComponent<Rigidbody>();
+        //speed = 10f;
 
-    //// Update is called once per frame
+        gameObject.transform.Translate(Vector3.down * 3f, Space.Self);
+
+    }
+
+    // Update is called once per frame
     //void Update()
     //{
     //    rb2d.AddForce(Vector3.down * speed);
+
     //}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            PlayerStats.CheckPlayerHealth();
 
             Debug.Log("The Player has been hit!");
             PlayerStats.playerHealth -= 5f;

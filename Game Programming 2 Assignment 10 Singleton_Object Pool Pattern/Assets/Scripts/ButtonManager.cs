@@ -10,21 +10,21 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : MonoBehaviour
 {
 
-    public static ButtonManager instance;
+    //public static ButtonManager instance;
 
-    void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+    //void Awake()
+    //{
+    //    if(instance == null)
+    //    {
+    //        instance = this;
+    //    }
+    //    else
+    //    {
+    //        Destroy(gameObject);
+    //    }
 
-        DontDestroyOnLoad(gameObject);
-    }
+    //    DontDestroyOnLoad(gameObject);
+    //}
     
     public void LoadLevel(int levelBuildNum)
     {

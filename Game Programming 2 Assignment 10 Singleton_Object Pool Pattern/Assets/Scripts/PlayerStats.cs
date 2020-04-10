@@ -10,7 +10,11 @@ public static class PlayerStats
 {
 
     public static float playerHealth = 100;
+
     public static bool gameOver = false;
+    public static bool gameVictory = false;
+
+    public static int totalYellowThings = 0;
 
     public static void CheckPlayerHealth()
     {

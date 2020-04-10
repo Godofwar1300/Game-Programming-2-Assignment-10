@@ -1,39 +1,52 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/*
+* (Christopher Green)
+* (GameController.cs)
+* (Assignment 10)
+* (This script defines basic functionality of the game such as timers and so on.)
+*/
+
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
 
     public Text healthText;
-
-    // public Text timerText;
-
-
-    private void Start()
-    {
-
-    }
+    public Text yellowThingsText;
 
     private void Update()
     {
-
         healthText.text = "Health:  " + PlayerStats.playerHealth.ToString("0") + "%";
+        yellowThingsText.text = "Total Yellow Things: " + PlayerStats.totalYellowThings + " / 5";
+
+        PlayerStats.CheckPlayerHealth();
+
+        if (PlayerStats.totalYellowThings >= 5)
+        {
+            PlayerStats.gameVictory = true;
+        }
+
+        if (PlayerStats.gameOver)
+        {
+            GameLost();
+        }
+
+        if(PlayerStats.gameVictory)
+        {
+            GameWin();
+        }
 
     }
 
-    //public IEnumerator TutorialTimer()
-    //{
+    public void GameWin()
+    {
+        SceneManager.LoadScene(3);
+    }
 
-    //    float timerDuration = 20f;
-
-    //    while(timerDuration > 0)
-    //    {
-    //        timerDuration -= Time.deltaTime;
-    //        timerText.text = "Timer: " + timerDuration.ToString("00");
-    //        yield return null;
-    //    }
-    //}
-
+    public void GameLost()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
